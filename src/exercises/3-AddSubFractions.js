@@ -2,22 +2,9 @@ import nerdamer from 'nerdamer/nerdamer.core';
 import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
-import {
-  randomIntBetween,
-  randomNonZeroIntBetween,
-  coinFlip,
-  rollD,
-  chooseRandomArrayElement,
-  chooseSomeRandomArrayElements,
-  shuffle,
-} from '../utility/random';
+import { randomIntBetween, coinFlip } from '../utility/random';
 
-import {
-  showSign,
-  wrapNum,
-  wrapNegative,
-  wrapWithVarIfNegative,
-} from '../utility/auxMath';
+import { wrapNegative } from '../utility/auxMath';
 
 import { compareNumbers } from '../checkMethods';
 
