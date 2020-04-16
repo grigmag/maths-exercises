@@ -5,8 +5,8 @@ export const exerciseList = [
     filename: '1-2NumsCalc',
   },
   {
-    name: 'Calculation 2',
+    name: 'Simplify Fractions',
     key: 2,
-    filename: '1-2NumsCalc',
+    filename: '2-SimplifyFraction',
   },
 ];

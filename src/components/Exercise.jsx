@@ -6,7 +6,7 @@ import Latex from 'react-latex';
 
 import { exerciseList } from '../exercises/exerciseList';
 
-const NUM_EXERCISES = 3;
+const NUM_EXERCISES = 10;
 
 async function importExerciseCreator(exKey) {
   try {

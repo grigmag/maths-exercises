@@ -6,9 +6,18 @@ import {
   randomIntBetween,
   randomNonZeroIntBetween,
   coinFlip,
+  rollD,
+  chooseRandomArrayElement,
+  chooseSomeRandomArrayElements,
+  shuffle,
 } from '../utility/random';
 
-import { wrapNegative } from '../utility/auxMath';
+import {
+  showSign,
+  wrapNum,
+  wrapNegative,
+  wrapWithVarIfNegative,
+} from '../utility/auxMath';
 
 import { compareNumbers } from '../checkMethods';
 
