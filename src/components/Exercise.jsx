@@ -8,19 +8,6 @@ import { exerciseList } from '../exercises/exerciseList';
 
 const NUM_EXERCISES = 10;
 
-async function importExerciseCreator(exKey) {
-  try {
-    const exDetails = exerciseList.find((ex) => ex.key === exKey);
-    // console.log('exDetails: ', exDetails);
-
-    const exModule = await import('../exercises/' + exDetails.filename);
-
-    return exModule.default;
-  } catch (err) {
-    console.log('Error: ' + err);
-  }
-}
-
 class Exercise extends Component {
   constructor() {
     super();
@@ -30,10 +17,25 @@ class Exercise extends Component {
     };
   }
 
+  async importExerciseCreator(exKey) {
+    try {
+      const exDetails = exerciseList.find((ex) => ex.key === exKey);
+      this.setState({ exTitle: exDetails.name });
+
+      // console.log('exDetails: ', exDetails);
+
+      const exModule = await import('../exercises/' + exDetails.filename);
+
+      return exModule.default;
+    } catch (err) {
+      console.log('Error: ' + err);
+    }
+  }
+
   async componentDidMount() {
     // console.log('props: ', this.props);
     const exKey = parseInt(this.props.match.params.id);
-    const exCreator = await importExerciseCreator(exKey);
+    const exCreator = await this.importExerciseCreator(exKey);
 
     this.setState({ exCreator });
 
@@ -102,7 +104,7 @@ class Exercise extends Component {
         <Link to="/">Home</Link>
         {this.state.exercise ? (
           <>
-            <h1>Exercise</h1>
+            <h1>{this.state.exTitle || 'Exercise'}</h1>
             <p>{this.state.exercise.questionText}</p>
             <Latex displayMode={true}>
               {this.state.exercise.questionLatex ||

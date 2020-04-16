@@ -9,4 +9,9 @@ export const exerciseList = [
     key: 2,
     filename: '2-SimplifyFraction',
   },
+  {
+    name: 'Add and Subtract Fractions',
+    key: 3,
+    filename: '3-AddSubFractions',
+  },
 ];

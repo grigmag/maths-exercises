@@ -28,8 +28,6 @@ export default function generate2NumsCalc() {
   numA = mult * randomIntBetween(1, maxInt);
   numB = mult * randomIntBetween(1, maxInt);
 
-  console.log(numA, numB, mult);
-
   exercise.questionMath = `${wrapNegative(numA)} / ${wrapNegative(numB)}`;
 
   exercise.questionText = 'Απλοποίησε το κλάσμα:';
