@@ -6,6 +6,8 @@ import Latex from 'react-latex';
 
 import { exerciseList } from '../exercises/exerciseList';
 
+import './Exercise.css';
+
 const NUM_EXERCISES = 10;
 
 class Exercise extends Component {
@@ -100,38 +102,60 @@ class Exercise extends Component {
     // console.log('state: ', this.state);
 
     return (
-      <div>
-        <Link to="/">Home</Link>
+      <div className="">
+        <Link
+          to="/"
+          className="btn red accent-3 grey-text text-lighten-4 findbtn"
+        >
+          Back to Home
+        </Link>
         {this.state.exercise ? (
           <>
-            <h1>{this.state.exTitle || 'Exercise'}</h1>
-            <p>{this.state.exercise.questionText}</p>
-            <Latex displayMode={true}>
-              {this.state.exercise.questionLatex ||
-                String.raw`$\int_0^\infty x^2 dx$`}
-            </Latex>
-            <form onSubmit={this.submitAnswerHandler.bind(this)}>
-              <label htmlFor="answerid">Answer: </label>
-              <input
-                type="text"
-                name="answerid"
-                id="answerid"
-                onChange={this.changeAnswerHandler.bind(this)}
-                autoComplete="off"
-                value={this.state.answer || ''}
-              />
-              <input type="submit" value="Ok!" />
-            </form>
-            {this.state.completed ? (
-              <h2>Well Done!</h2>
-            ) : (
-              <h2>
-                Completed: {this.state.counter} / {NUM_EXERCISES}
-              </h2>
-            )}
+            <h2 className="grey-text text-lighten-4">
+              {this.state.exTitle || 'Exercise'}
+            </h2>
+            <div className="divider red accent-3"></div>
+            <div className="container">
+              <h5 className="grey-text text-lighten-4">
+                {this.state.exercise.questionText}
+              </h5>
+              <div className="alien-green-text">
+                <Latex displayMode={true}>
+                  {this.state.exercise.questionLatex ||
+                    String.raw`$\int_0^\infty x^2 dx$`}
+                </Latex>
+              </div>
+              <form className="" onSubmit={this.submitAnswerHandler.bind(this)}>
+                <div className="input-field">
+                  {/* <label htmlFor="answerid">Answer: </label> */}
+                  <input
+                    type="text"
+                    name="answerid"
+                    id="answerid"
+                    onChange={this.changeAnswerHandler.bind(this)}
+                    autoComplete="off"
+                    className="center-align grey-text text-lighten-4"
+                    placeholder="Answer"
+                    value={this.state.answer || ''}
+                  />
+                </div>
+                <input
+                  type="submit"
+                  value="Ok!"
+                  className="btn red accent-3 grey-text text-lighten-4"
+                />
+              </form>
+            </div>
+            <p className="grey-text text-lighten-4">
+              {this.state.completed
+                ? 'Well Done!'
+                : `Completed: ${this.state.counter} / ${NUM_EXERCISES}`}
+            </p>
           </>
         ) : (
-          <h1>Creating Exercise...</h1>
+          <>
+            <h1 className="grey-text text-lighten-4">Creating Exercise...</h1>
+          </>
         )}
       </div>
     );

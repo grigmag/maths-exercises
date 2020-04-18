@@ -1,0 +1,16 @@
+body {
+  background-color: #2b2b2b;
+}
+
+.alien-green-text {
+  color: #74e22e;
+}
+
+.btn:hover {
+  background-color: #b71c1c !important;
+}
+
+.input-field input[type='text']:focus {
+  border-bottom: 1px solid #74e22e !important;
+  box-shadow: 0 1px 0 0 #74e22e !important;
+}
