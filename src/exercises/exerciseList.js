@@ -1,4 +1,4 @@
-export const exerciseList = [
+const exerciseList = [
   {
     name: 'Calculation with two numbers',
     key: 1,
@@ -15,3 +15,35 @@ export const exerciseList = [
     filename: '3-AddSubFractions',
   },
 ];
+
+const exTest = [
+  {
+    name: 'Test',
+    key: 4,
+    filename: '3-AddSubFractions',
+  },
+  {
+    name: 'Test',
+    key: 5,
+    filename: '3-AddSubFractions',
+  },
+  {
+    name: 'Test',
+    key: 6,
+    filename: '3-AddSubFractions',
+  },
+  {
+    name: 'Test',
+    key: 7,
+    filename: '3-AddSubFractions',
+  },
+  {
+    name: 'Test',
+    key: 8,
+    filename: '3-AddSubFractions',
+  },
+];
+
+// exerciseList.push(...exTest);
+
+export { exerciseList };

@@ -1,0 +1,16 @@
+.exercise-list-container {
+  width: 50%;
+}
+
+.exercise-card {
+  margin: 5%;
+}
+
+.exercise-name {
+  margin: 0;
+  padding: 0;
+}
+
+.alien-green-text {
+  color: #74e22e;
+}
