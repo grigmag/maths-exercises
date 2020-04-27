@@ -103,10 +103,7 @@ class Exercise extends Component {
 
     return (
       <div className="">
-        <Link
-          to="/"
-          className="btn red accent-3 grey-text text-lighten-4 findbtn"
-        >
+        <Link to="/" className="btn red accent-3 grey-text text-lighten-4">
           Back to Home
         </Link>
         {this.state.exercise ? (
@@ -115,27 +112,29 @@ class Exercise extends Component {
               {this.state.exTitle || 'Exercise'}
             </h2>
             <div className="divider red accent-3"></div>
-            <div className="container">
-              <h5 className="grey-text text-lighten-4">
+            <div className="container exercise-container">
+              <h5 className="grey-text text-lighten-4 noto-serif-text">
                 {this.state.exercise.questionText}
               </h5>
-              <div className="alien-green-text">
+              <div className="alien-green-text exercise-math">
                 <Latex displayMode={true}>
                   {this.state.exercise.questionLatex ||
                     String.raw`$\int_0^\infty x^2 dx$`}
                 </Latex>
               </div>
               <form className="" onSubmit={this.submitAnswerHandler.bind(this)}>
-                <div className="input-field">
-                  {/* <label htmlFor="answerid">Answer: </label> */}
+                <div className="my-input">
+                  {/* <label htmlFor="answerid" className="answer-label">
+                    Answer
+                  </label> */}
                   <input
                     type="text"
                     name="answerid"
                     id="answerid"
                     onChange={this.changeAnswerHandler.bind(this)}
                     autoComplete="off"
-                    className="center-align grey-text text-lighten-4"
-                    placeholder="Answer"
+                    className="answer-input center-align grey-text text-lighten-4"
+                    // placeholder="Answer"
                     value={this.state.answer || ''}
                   />
                 </div>
@@ -146,7 +145,7 @@ class Exercise extends Component {
                 />
               </form>
             </div>
-            <p className="grey-text text-lighten-4">
+            <p className="grey-text text-lighten-4 ">
               {this.state.completed
                 ? 'Well Done!'
                 : `Completed: ${this.state.counter} / ${NUM_EXERCISES}`}

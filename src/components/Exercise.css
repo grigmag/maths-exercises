@@ -1,5 +1,6 @@
 body {
   background-color: #2b2b2b;
+  font-family: 'Raleway', sans-serif;
 }
 
 .alien-green-text {
@@ -10,7 +11,31 @@ body {
   background-color: #b71c1c !important;
 }
 
-.input-field input[type='text']:focus {
+.my-input input[type='text']:focus {
   border-bottom: 1px solid #74e22e !important;
   box-shadow: 0 1px 0 0 #74e22e !important;
+}
+
+.exercise-container {
+  width: 50%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.exercise-math {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  font-size: 1.7em;
+}
+
+.answer-label {
+  font-size: 1.2em;
+}
+
+.answer-input {
+  font-size: 2em !important;
+}
+
+.noto-serif-text {
+  font-family: 'Noto Serif', serif;
 }
