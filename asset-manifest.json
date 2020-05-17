@@ -1,0 +1,36 @@
+{
+  "files": {
+    "static/js/0.4963f4b3.chunk.js": "/maths-exercises/static/js/0.4963f4b3.chunk.js",
+    "static/js/0.4963f4b3.chunk.js.map": "/maths-exercises/static/js/0.4963f4b3.chunk.js.map",
+    "static/js/1.bf934f2b.chunk.js": "/maths-exercises/static/js/1.bf934f2b.chunk.js",
+    "static/js/1.bf934f2b.chunk.js.map": "/maths-exercises/static/js/1.bf934f2b.chunk.js.map",
+    "static/js/2.975d84d6.chunk.js": "/maths-exercises/static/js/2.975d84d6.chunk.js",
+    "static/js/2.975d84d6.chunk.js.map": "/maths-exercises/static/js/2.975d84d6.chunk.js.map",
+    "static/js/3.7f2ebb10.chunk.js": "/maths-exercises/static/js/3.7f2ebb10.chunk.js",
+    "static/js/3.7f2ebb10.chunk.js.map": "/maths-exercises/static/js/3.7f2ebb10.chunk.js.map",
+    "static/js/4.71e1cac8.chunk.js": "/maths-exercises/static/js/4.71e1cac8.chunk.js",
+    "static/js/4.71e1cac8.chunk.js.map": "/maths-exercises/static/js/4.71e1cac8.chunk.js.map",
+    "main.css": "/maths-exercises/static/css/main.088a6834.chunk.css",
+    "main.js": "/maths-exercises/static/js/main.606c25e5.chunk.js",
+    "main.js.map": "/maths-exercises/static/js/main.606c25e5.chunk.js.map",
+    "runtime-main.js": "/maths-exercises/static/js/runtime-main.04345ba2.js",
+    "runtime-main.js.map": "/maths-exercises/static/js/runtime-main.04345ba2.js.map",
+    "static/css/7.8419c347.chunk.css": "/maths-exercises/static/css/7.8419c347.chunk.css",
+    "static/js/7.13765116.chunk.js": "/maths-exercises/static/js/7.13765116.chunk.js",
+    "static/js/7.13765116.chunk.js.map": "/maths-exercises/static/js/7.13765116.chunk.js.map",
+    "index.html": "/maths-exercises/index.html",
+    "precache-manifest.a88892a9120d35e9e52921beb86301b7.js": "/maths-exercises/precache-manifest.a88892a9120d35e9e52921beb86301b7.js",
+    "service-worker.js": "/maths-exercises/service-worker.js",
+    "static/css/7.8419c347.chunk.css.map": "/maths-exercises/static/css/7.8419c347.chunk.css.map",
+    "static/css/main.088a6834.chunk.css.map": "/maths-exercises/static/css/main.088a6834.chunk.css.map",
+    "static/js/7.13765116.chunk.js.LICENSE.txt": "/maths-exercises/static/js/7.13765116.chunk.js.LICENSE.txt",
+    "static/media/katex.min.css": "/maths-exercises/static/media/KaTeX_Typewriter-Regular.6cc31ea5.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.04345ba2.js",
+    "static/css/7.8419c347.chunk.css",
+    "static/js/7.13765116.chunk.js",
+    "static/css/main.088a6834.chunk.css",
+    "static/js/main.606c25e5.chunk.js"
+  ]
+}
