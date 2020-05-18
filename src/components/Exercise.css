@@ -39,3 +39,24 @@ body {
 .noto-serif-text {
   font-family: 'Noto Serif', serif;
 }
+
+/* TODO: Make new file for  these if I am to use thems */
+
+.tally {
+  margin-top: 7%;
+}
+
+.tally-col {
+  padding-top: 2% !important;
+  padding-bottom: 2% !important;
+  background-color: #455a64;
+}
+
+.tally-col-test {
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+  background-image: url('../icons/success.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

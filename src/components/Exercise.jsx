@@ -8,6 +8,13 @@ import { exerciseList } from '../exercises/exerciseList';
 
 import './Exercise.css';
 
+// import TallyMaterialize from './TallyMaterialize';
+import TallyFlex from './TallyFlex';
+
+import defaultIcon from '../icons/default.png';
+import successIcon from '../icons/success.png';
+import failIcon from '../icons/fail.png';
+
 const NUM_EXERCISES = 10;
 
 class Exercise extends Component {
@@ -145,6 +152,7 @@ class Exercise extends Component {
                 />
               </form>
             </div>
+            {TallyFlex()}
             <p className="grey-text text-lighten-4 ">
               {this.state.completed
                 ? 'Well Done!'
