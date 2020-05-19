@@ -1,51 +1,51 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b507f20d59e4e9a291ef20a7884f211f",
+    "revision": "a8831dcbf997adc8826539efb60f90a9",
     "url": "/maths-exercises/index.html"
   },
   {
-    "revision": "3ea869bdad2941fcb1f7",
+    "revision": "333b36639ea2473d6a8b",
     "url": "/maths-exercises/static/css/7.8419c347.chunk.css"
   },
   {
-    "revision": "c7c78659f9bb40340bc9",
-    "url": "/maths-exercises/static/css/main.088a6834.chunk.css"
+    "revision": "79926698eaea2efc2a23",
+    "url": "/maths-exercises/static/css/main.c1f930c7.chunk.css"
   },
   {
-    "revision": "f5cad0ec19d63b4b7e78",
-    "url": "/maths-exercises/static/js/0.4963f4b3.chunk.js"
+    "revision": "c9ecc2e891e6d2375df0",
+    "url": "/maths-exercises/static/js/0.85c93466.chunk.js"
   },
   {
-    "revision": "a91ea7fae8526c3b4744",
-    "url": "/maths-exercises/static/js/1.bf934f2b.chunk.js"
+    "revision": "e343fdb9b2995adf81cd",
+    "url": "/maths-exercises/static/js/1.f5a3ee48.chunk.js"
   },
   {
-    "revision": "c8cb2a59c0ead3245daf",
-    "url": "/maths-exercises/static/js/2.975d84d6.chunk.js"
+    "revision": "69fd55dce4b7d4cbc3a9",
+    "url": "/maths-exercises/static/js/2.9876508e.chunk.js"
   },
   {
-    "revision": "e9c6c73b4b027837b897",
-    "url": "/maths-exercises/static/js/3.7f2ebb10.chunk.js"
+    "revision": "b231b8e89b2263edd88a",
+    "url": "/maths-exercises/static/js/3.45d51abc.chunk.js"
   },
   {
-    "revision": "264aa88f51fad8bc891b",
-    "url": "/maths-exercises/static/js/4.71e1cac8.chunk.js"
+    "revision": "47cbd9824441122c67c9",
+    "url": "/maths-exercises/static/js/4.3ecbba18.chunk.js"
   },
   {
-    "revision": "3ea869bdad2941fcb1f7",
-    "url": "/maths-exercises/static/js/7.6690ee9c.chunk.js"
+    "revision": "333b36639ea2473d6a8b",
+    "url": "/maths-exercises/static/js/7.d904b2bf.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/maths-exercises/static/js/7.6690ee9c.chunk.js.LICENSE.txt"
+    "url": "/maths-exercises/static/js/7.d904b2bf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c7c78659f9bb40340bc9",
-    "url": "/maths-exercises/static/js/main.71b4739c.chunk.js"
+    "revision": "79926698eaea2efc2a23",
+    "url": "/maths-exercises/static/js/main.c1fc3fdb.chunk.js"
   },
   {
-    "revision": "6d66197042c68c5bd1a4",
-    "url": "/maths-exercises/static/js/runtime-main.04345ba2.js"
+    "revision": "cf0b11c84a86c607ae81",
+    "url": "/maths-exercises/static/js/runtime-main.5bb51562.js"
   },
   {
     "revision": "7f06b4e30317f784d61d26686aed0ab2",
