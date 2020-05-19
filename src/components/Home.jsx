@@ -9,26 +9,26 @@ class Home extends Component {
   render() {
     const exListComponent = exerciseList.map((ex) => {
       return (
-        <div className="container exercise-list-container">
+        <Link to={'/ex' + ex.key} key={ex.key}>
           <div className="card red accent-3 exercise-card">
             <div className="card-content">
-              <div key={ex.key}>
-                <Link to={'/ex' + ex.key}>
-                  <h4 className="exercise-name grey-text text-lighten-4">
-                    {ex.name}
-                  </h4>
-                </Link>
+              <div>
+                <h4 className="exercise-name grey-text text-lighten-4">
+                  {ex.name}
+                </h4>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       );
     });
 
     return (
       <>
         <h1 className="alien-green-text">Welcome!</h1>
-        {exListComponent}
+        <div className="container exercise-list-container">
+          {exListComponent}
+        </div>
       </>
     );
   }

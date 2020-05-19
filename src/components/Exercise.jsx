@@ -194,6 +194,7 @@ class Exercise extends Component {
                     className="answer-input center-align grey-text text-lighten-4"
                     // placeholder="Answer"
                     value={this.state.answer || ''}
+                    autoFocus={true}
                   />
                 </div>
                 <input
