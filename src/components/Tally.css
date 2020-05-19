@@ -1,0 +1,13 @@
+img {
+  max-width: 100%;
+  border: 1px solid #858585;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-icon-container {
+  width: 5%;
+}

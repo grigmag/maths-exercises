@@ -5,17 +5,25 @@ import 'katex/dist/katex.min.css';
 import Latex from 'react-latex';
 
 import { exerciseList } from '../exercises/exerciseList';
+import Tally from './Tally';
 
 import './Exercise.css';
 
-// import TallyMaterialize from './TallyMaterialize';
-import TallyFlex from './TallyFlex';
-
-import defaultIcon from '../icons/default.png';
-import successIcon from '../icons/success.png';
-import failIcon from '../icons/fail.png';
-
 const NUM_EXERCISES = 10;
+
+const MESSAGES = {
+  invalidAnswer: 'Invalid answer, try again!',
+  secondTry: 'Not quite right, try again!',
+  fail: 'Good try, next exercise!',
+  success: 'Correct, well done!',
+  completed: 'Well done, you completed the exercise!',
+  start: "Let's start!",
+};
+
+const POINTS = {
+  success: 100,
+  secondTry: 50,
+};
 
 class Exercise extends Component {
   constructor() {
@@ -23,6 +31,11 @@ class Exercise extends Component {
     this.state = {
       counter: 0,
       completed: false,
+      // array elements take values 'success', 'fail', or null
+      exerciseResults: new Array(NUM_EXERCISES).fill(null),
+      score: 0,
+      isSecondTry: false,
+      message: MESSAGES.start,
     };
   }
 
@@ -51,50 +64,87 @@ class Exercise extends Component {
     this.createNewExercise();
   }
 
-  checkAnswer() {
-    return this.state.exercise.checkMethod(
-      this.state.answer,
-      this.state.exercise.answerMath
-    );
-  }
-
-  incrementCounter() {
-    console.log('Before: ', this.state.counter);
-    const counter = this.state.counter + 1;
-    console.log('New counter: ', counter);
-    this.setState({ counter: counter }, () => {
-      console.log('async: ', this.state.counter);
-    });
-    console.log('After: ', this.state.counter);
-  }
-
-  handleCorrectAnswer() {
-    if (this.state.counter + 1 >= NUM_EXERCISES) {
-      this.setState({
-        completed: true,
-        counter: this.state.counter + 1,
-      });
-    } else {
-      this.setState({ counter: this.state.counter + 1 });
-      this.createNewExercise();
-    }
-  }
-
   createNewExercise() {
     const exercise = this.state.exCreator();
     this.setState({ exercise });
   }
 
+  checkAnswer() {
+    return this.state.exercise.checkMethod(
+      this.state.answer.trim(),
+      this.state.exercise.answerMath
+    );
+  }
+
+  validateAnswer() {
+    // TODO: Maybe improve validation
+
+    if (!this.state.answer.trim()) {
+      return false;
+    }
+    return true;
+  }
+
+  beforeNewExercise() {
+    if (this.state.counter + 1 >= NUM_EXERCISES) {
+      this.setState({
+        completed: true,
+        counter: this.state.counter + 1,
+        isSecondTry: false,
+        message: MESSAGES.completed,
+      });
+    } else {
+      this.setState({ counter: this.state.counter + 1, isSecondTry: false });
+      this.createNewExercise();
+    }
+  }
+
   submitAnswerHandler(event) {
     event.preventDefault();
 
+    if (!this.validateAnswer()) {
+      this.setState({
+        message: MESSAGES.invalidAnswer,
+      });
+
+      return;
+    }
+
     const isCorrect = this.checkAnswer();
     if (isCorrect) {
-      console.log('Correct!');
-      this.setState({ answer: null });
-      this.handleCorrectAnswer();
+      const exerciseResults = this.state.exerciseResults;
+      exerciseResults[this.state.counter] = 'success';
+
+      const score =
+        this.state.score +
+        (this.state.isSecondTry ? POINTS.secondTry : POINTS.success);
+
+      this.setState({
+        answer: null,
+        exerciseResults,
+        score,
+        message: MESSAGES.success,
+      });
+
+      this.beforeNewExercise();
     } else {
-      console.log('Wrong?');
+      if (!this.state.isSecondTry) {
+        this.setState({
+          message: MESSAGES.secondTry,
+          isSecondTry: true,
+        });
+      } else {
+        const exerciseResults = this.state.exerciseResults;
+        exerciseResults[this.state.counter] = 'fail';
+
+        this.setState({
+          answer: null,
+          exerciseResults,
+          message: MESSAGES.fail,
+        });
+
+        this.beforeNewExercise();
+      }
     }
   }
 
@@ -113,6 +163,7 @@ class Exercise extends Component {
         <Link to="/" className="btn red accent-3 grey-text text-lighten-4">
           Back to Home
         </Link>
+
         {this.state.exercise ? (
           <>
             <h2 className="grey-text text-lighten-4">
@@ -149,15 +200,16 @@ class Exercise extends Component {
                   type="submit"
                   value="Ok!"
                   className="btn red accent-3 grey-text text-lighten-4"
+                  disabled={this.state.completed}
                 />
               </form>
             </div>
-            {TallyFlex()}
-            <p className="grey-text text-lighten-4 ">
-              {this.state.completed
-                ? 'Well Done!'
-                : `Completed: ${this.state.counter} / ${NUM_EXERCISES}`}
-            </p>
+            <h5 className="grey-text text-lighten-4">{this.state.message}</h5>
+            <h4 className="grey-text text-lighten-4">
+              Score: {this.state.score}
+            </h4>
+
+            <Tally exerciseResults={this.state.exerciseResults} />
           </>
         ) : (
           <>

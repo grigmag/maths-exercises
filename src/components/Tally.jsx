@@ -1,18 +1,13 @@
 import React from 'react';
 
-import './TallyFlex.css';
+import './Tally.css';
 
 import defaultIcon from '../icons/default.png';
 import successIcon from '../icons/success.png';
 import failIcon from '../icons/fail.png';
 
-export default function TallyFlex() {
-  const exerciseProgress = new Array(10).fill(null, 0, 10);
-
-  exerciseProgress[1] = 'success';
-  exerciseProgress[4] = 'fail';
-
-  const iconsList = exerciseProgress.map((el, idx) => {
+export default function Tally(props) {
+  const iconsList = props.exerciseResults.map((el, idx) => {
     let imageSource, altText;
 
     if (el === 'success') {
