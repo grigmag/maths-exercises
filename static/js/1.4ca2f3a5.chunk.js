@@ -1,0 +1,2 @@
+(this.webpackJsonp1=this.webpackJsonp1||[]).push([[1],{20:function(i,a,n){"use strict";n.r(a);var e=[{name:"Simplify Fractions",filename:"2-SimplifyFraction"},{name:"Add and Subtract Fractions",filename:"3-AddSubFractions"},{name:"Multiply Fractions",filename:"4-MultiplyFractions"},{name:"Divide Fractions",filename:"5-DivideFractions"}];e.forEach((function(i,a){i.key=a})),a.default=e}}]);
+//# sourceMappingURL=1.4ca2f3a5.chunk.js.map
