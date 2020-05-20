@@ -2,9 +2,7 @@ import nerdamer from 'nerdamer/nerdamer.core';
 import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
-import { randomIntBetween, coinFlip } from '../utility/random';
-
-import { wrapNegative } from '../utility/auxMath';
+import { randomIntBetween } from '../utility/random';
 
 import { compareNumbers } from '../checkMethods';
 
