@@ -2,9 +2,7 @@ import nerdamer from 'nerdamer/nerdamer.core';
 import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
-import { randomIntBetween } from '../utility/random';
-
-import { wrapNegative } from '../utility/auxMath';
+import { randomIntBetween } from '../../utility/random';
 
 import { compareNumbers } from '../checkMethods';
 
@@ -17,27 +15,26 @@ export default function generate2NumsCalc() {
     checkMethod: null,
   };
 
-  const maxInt = 10;
-  const maxMult = 5;
+  const maxInt = 7;
 
-  // numA / numB
+  // (numA / numB) * (num / numD)
 
-  let numA, numB, mult;
+  let numA, numB, numC, numD;
 
-  mult = randomIntBetween(2, maxMult);
-  numA = mult * randomIntBetween(1, maxInt);
-  numB = mult * randomIntBetween(1, maxInt);
+  numA = randomIntBetween(1, maxInt);
+  numB = randomIntBetween(2, maxInt);
 
-  exercise.questionMath = `${wrapNegative(numA)} / ${wrapNegative(numB)}`;
+  numC = randomIntBetween(1, maxInt);
+  numD = randomIntBetween(2, maxInt);
 
-  exercise.questionText = 'Απλοποίησε το κλάσμα:';
+  exercise.questionMath = `${numA} / ${numB} *  ${numC} / ${numD}`;
+
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
   exercise.checkMethod = compareNumbers;
-
-  // console.log('nerd: ', nerdamer('5/40').toString()); // test
+  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
 
   return exercise;
 }

@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex';
 
-import { exerciseList } from '../exercises/exerciseList';
 import Tally from './Tally';
 
 import './Exercise.css';
@@ -41,12 +40,18 @@ class Exercise extends Component {
 
   async importExerciseCreator(exKey) {
     try {
+      const exerciseList = await import(
+        '../exercises/' + this.props.folder + '/exerciseList'
+      ).then((module) => module.default);
+
       const exDetails = exerciseList.find((ex) => ex.key === exKey);
       this.setState({ exTitle: exDetails.name });
 
       // console.log('exDetails: ', exDetails);
 
-      const exModule = await import('../exercises/' + exDetails.filename);
+      const exModule = await import(
+        '../exercises/' + this.props.folder + '/' + exDetails.filename
+      );
 
       return exModule.default;
     } catch (err) {

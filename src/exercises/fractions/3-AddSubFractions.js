@@ -2,9 +2,9 @@ import nerdamer from 'nerdamer/nerdamer.core';
 import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
-import { randomIntBetween, coinFlip, rollD } from '../utility/random';
+import { randomIntBetween, coinFlip } from '../../utility/random';
 
-import { wrapNegative } from '../utility/auxMath';
+import { wrapNegative } from '../../utility/auxMath';
 
 import { compareNumbers } from '../checkMethods';
 
@@ -19,7 +19,7 @@ export default function generate2NumsCalc() {
 
   const maxInt = 7;
 
-  // (numA / numB) * (num / numD)
+  // numA / numB +- num / numD
 
   let numA, numB, numC, numD;
 
@@ -29,19 +29,16 @@ export default function generate2NumsCalc() {
   numC = randomIntBetween(1, maxInt);
   numD = randomIntBetween(2, maxInt);
 
-  exercise.questionMath = `(${numA} / ${numB})  /  (${numC} / ${numD})`;
+  exercise.questionMath = `${wrapNegative(numA)} / ${wrapNegative(numB)} ${
+    coinFlip() ? '+' : '-'
+  } ${wrapNegative(numC)} / ${wrapNegative(numD)}`;
 
-  if (rollD(3) === 1) {
-    exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
-      exercise.questionMath
-    )} $`;
-  } else {
-    exercise.questionLatex = String.raw`$ \frac{${numA}}{${numB}} : \frac{${numC}}{${numD}} $`;
-  }
-
+  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
+  exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
+    exercise.questionMath
+  )} $`;
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
   exercise.checkMethod = compareNumbers;
-  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
 
   return exercise;
 }

@@ -6,9 +6,9 @@ import {
   randomIntBetween,
   randomNonZeroIntBetween,
   coinFlip,
-} from '../utility/random';
+} from '../../utility/random';
 
-import { wrapNegative } from '../utility/auxMath';
+import { wrapNegative } from '../../utility/auxMath';
 
 import { compareNumbers } from '../checkMethods';
 
