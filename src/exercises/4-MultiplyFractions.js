@@ -19,7 +19,7 @@ export default function generate2NumsCalc() {
 
   const maxInt = 7;
 
-  // numA / numB +- num / numD
+  // (numA / numB) * (num / numD)
 
   let numA, numB, numC, numD;
 
@@ -29,16 +29,14 @@ export default function generate2NumsCalc() {
   numC = randomIntBetween(1, maxInt);
   numD = randomIntBetween(2, maxInt);
 
-  exercise.questionMath = `${wrapNegative(numA)} / ${wrapNegative(numB)} ${
-    coinFlip() ? '+' : '-'
-  } ${wrapNegative(numC)} / ${wrapNegative(numD)}`;
+  exercise.questionMath = `${numA} / ${numB} *  ${numC} / ${numD}`;
 
-  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
   exercise.checkMethod = compareNumbers;
+  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
 
   return exercise;
 }
