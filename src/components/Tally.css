@@ -1,6 +1,9 @@
 img {
-  max-width: 100%;
-  border: 1px solid #858585;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: 0px;
 }
 
 .box {
@@ -9,5 +12,8 @@ img {
 }
 
 .flex-icon-container {
-  width: 5%;
+  border: 1px solid #858585;
+  width: 5vw;
+  height: 5vw;
+  overflow: hidden;
 }
