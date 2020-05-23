@@ -84,9 +84,12 @@ class Exercise extends Component {
   validateAnswer() {
     // TODO: Maybe improve validation
 
-    if (!this.state.answer.trim()) {
+    if (typeof this.state.answer === 'undefined') {
+      return false;
+    } else if (this.state.answer.trim().length === 0) {
       return false;
     }
+
     return true;
   }
 

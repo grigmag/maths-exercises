@@ -14,7 +14,7 @@ import { showSign } from '../../utility/auxMath';
 
 import { nerdOneVar, nerdTwoVars } from '../checkMethods';
 
-export default function generate2NumsCalc() {
+export default function varSimple() {
   const exercise = {
     questionText: null,
     questionMath: null,
