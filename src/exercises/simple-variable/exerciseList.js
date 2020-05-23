@@ -1,7 +1,7 @@
 const exerciseList = [
   {
-    name: 'Add and multiply variables',
-    filename: 'varAddMult',
+    name: 'Variables and numbers',
+    filename: 'varSimple',
   },
 ];
 

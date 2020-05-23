@@ -3,16 +3,14 @@ import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
 import {
-  randomIntBetween,
   randomNonZeroIntBetween,
-  coinFlip,
   rollD,
   chooseRandomArrayElement,
   chooseSomeRandomArrayElements,
   shuffle,
 } from '../../utility/random';
 
-import { wrapNegative, showSign } from '../../utility/auxMath';
+import { showSign } from '../../utility/auxMath';
 
 import { nerdOneVar, nerdTwoVars } from '../checkMethods';
 
@@ -25,11 +23,10 @@ export default function generate2NumsCalc() {
     checkMethod: null,
   };
 
-  const varNameList = ['x', 'y', 'z', 'a', 'b', 'c'];
+  const varNameList = ['x', 'y', 'z', 'b', 'c', 's', 't', 'u', 'v'];
   const maxInt = 10;
 
-  const roll = rollD(2);
-  // const roll = 2; //testing
+  const roll = rollD(4);
 
   if (roll === 1) {
     // ax + bx + cx
@@ -40,6 +37,7 @@ export default function generate2NumsCalc() {
     exercise.questionMath = `${numA} ${varA} ${showSign(
       numB
     )} ${varA} ${showSign(numC)} ${varA}`;
+
     exercise.checkMethod = nerdOneVar;
   } else if (roll === 2) {
     // a x + b x + c y + d y
@@ -54,10 +52,35 @@ export default function generate2NumsCalc() {
     exercise.questionMath = `${numA} ${varOrder[0]} ${showSign(numB)} ${
       varOrder[1]
     } ${showSign(numC)} ${varOrder[2]} ${showSign(numD)} ${varOrder[3]}`;
+
     exercise.checkMethod = nerdTwoVars;
+  } else if (roll === 3) {
+    // (ax + b) +- (cx + d)
+    const [numA, numB, numC, numD] = randomNonZeroIntBetween(
+      -maxInt,
+      maxInt,
+      4
+    );
+
+    const varA = chooseRandomArrayElement(varNameList);
+    const sign = chooseRandomArrayElement(['+', '-']);
+
+    exercise.questionMath = `(${numA} ${varA} ${showSign(
+      numB
+    )}) ${sign} (${numC} ${varA} ${showSign(numD)})`;
+
+    exercise.checkMethod = nerdOneVar;
+  } else if (roll === 4) {
+    // a (bx + c)
+    const [numA, numB, numC] = randomNonZeroIntBetween(-maxInt, maxInt, 3);
+    const varA = chooseRandomArrayElement(varNameList);
+
+    exercise.questionMath = `${numA} (${numB} ${varA} ${showSign(numC)})`;
+
+    exercise.checkMethod = nerdOneVar;
   }
 
-  exercise.questionText = 'Απλοποίησε: ';
+  exercise.questionText = 'Κάνε τις πράξεις: ';
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;
