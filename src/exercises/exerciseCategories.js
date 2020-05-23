@@ -7,6 +7,10 @@ const exerciseCategories = [
     title: 'Fractions',
     folder: 'fractions',
   },
+  {
+    title: 'Simple Variable Calculations',
+    folder: 'simple-variable',
+  },
 ];
 
 exerciseCategories.forEach((cat, idx) => {

@@ -196,6 +196,9 @@ class Exercise extends Component {
                     id="answerid"
                     onChange={this.changeAnswerHandler.bind(this)}
                     autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck="false"
                     className="answer-input center-align grey-text text-lighten-4"
                     // placeholder="Answer"
                     value={this.state.answer || ''}
