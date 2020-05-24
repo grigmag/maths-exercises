@@ -13,3 +13,8 @@ export function wrapNegative(num) {
 export function wrapWithVarIfNegative(num, varName) {
   return `${num < 0 ? `(${num} ${varName})` : `${num} ${varName}`}`;
 }
+
+export function power(num) {
+  // Currently unsuitable for printing the latex of negative powers
+  return num === 1 ? '' : `^${num}`;
+}
