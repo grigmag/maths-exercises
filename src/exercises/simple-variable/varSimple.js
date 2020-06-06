@@ -12,7 +12,8 @@ import {
 
 import { showSign } from '../../utility/auxMath';
 
-import { nerdOneVar, nerdTwoVars } from '../checkMethods';
+import { typicalMethods, upToNTerms, noNumberMult } from '../validationMethods';
+import { nerd } from '../checkMethods';
 
 export default function varSimple() {
   const exercise = {
@@ -21,6 +22,7 @@ export default function varSimple() {
     questionLatex: null,
     answerMath: null,
     checkMethod: null,
+    validationMethods: null,
   };
 
   const varNameList = ['x', 'y', 'z', 'b', 'c', 's', 't', 'u', 'v'];
@@ -38,7 +40,12 @@ export default function varSimple() {
       numB
     )} ${varA} ${showSign(numC)} ${varA}`;
 
-    exercise.checkMethod = nerdOneVar;
+    exercise.validationMethods = [
+      ...typicalMethods,
+      upToNTerms(1),
+      noNumberMult,
+    ];
+    exercise.checkMethod = nerd;
   } else if (roll === 2) {
     // a x + b x + c y + d y
     const [numA, numB, numC, numD] = randomNonZeroIntBetween(
@@ -53,7 +60,12 @@ export default function varSimple() {
       varOrder[1]
     } ${showSign(numC)} ${varOrder[2]} ${showSign(numD)} ${varOrder[3]}`;
 
-    exercise.checkMethod = nerdTwoVars;
+    exercise.validationMethods = [
+      ...typicalMethods,
+      upToNTerms(2),
+      noNumberMult,
+    ];
+    exercise.checkMethod = nerd;
   } else if (roll === 3) {
     // (ax + b) +- (cx + d)
     const [numA, numB, numC, numD] = randomNonZeroIntBetween(
@@ -69,7 +81,12 @@ export default function varSimple() {
       numB
     )}) ${sign} (${numC} ${varA} ${showSign(numD)})`;
 
-    exercise.checkMethod = nerdOneVar;
+    exercise.validationMethods = [
+      ...typicalMethods,
+      upToNTerms(2),
+      noNumberMult,
+    ];
+    exercise.checkMethod = nerd;
   } else if (roll === 4) {
     // a (bx + c)
     const [numA, numB, numC] = randomNonZeroIntBetween(-maxInt, maxInt, 3);
@@ -77,7 +94,12 @@ export default function varSimple() {
 
     exercise.questionMath = `${numA} (${numB} ${varA} ${showSign(numC)})`;
 
-    exercise.checkMethod = nerdOneVar;
+    exercise.validationMethods = [
+      ...typicalMethods,
+      upToNTerms(2),
+      noNumberMult,
+    ];
+    exercise.checkMethod = nerd;
   }
 
   exercise.questionText = 'Κάνε τις πράξεις: ';

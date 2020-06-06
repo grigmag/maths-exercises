@@ -4,6 +4,7 @@ import 'nerdamer/Solve';
 
 import { randomIntBetween, rollD } from '../../utility/random';
 
+import { typicalMethods, onlyNumbers } from '../validationMethods';
 import { compareNumbers } from '../checkMethods';
 
 export default function generate2NumsCalc() {
@@ -13,6 +14,7 @@ export default function generate2NumsCalc() {
     questionLatex: null,
     answerMath: null,
     checkMethod: null,
+    validationMethods: null,
   };
 
   const maxInt = 7;
@@ -38,7 +40,10 @@ export default function generate2NumsCalc() {
   }
 
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
+
+  exercise.validationMethods = [...typicalMethods, onlyNumbers];
   exercise.checkMethod = compareNumbers;
+
   exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
 
   return exercise;

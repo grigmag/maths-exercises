@@ -74,23 +74,44 @@ class Exercise extends Component {
     this.setState({ exercise });
   }
 
-  checkAnswer() {
-    return this.state.exercise.checkMethod(
-      this.state.answer.trim(),
-      this.state.exercise.answerMath
-    );
-  }
-
-  validateAnswer() {
-    // TODO: Maybe improve validation
-
-    if (typeof this.state.answer === 'undefined') {
+  answerExists() {
+    if (!this.state.answer) {
+      return false;
+    } else if (typeof this.state.answer !== 'string') {
       return false;
     } else if (this.state.answer.trim().length === 0) {
       return false;
     }
 
     return true;
+  }
+
+  processAnswer() {
+    let answer = this.state.answer.trim().toLowerCase();
+    return answer;
+  }
+
+  validateAnswer(answer) {
+    if (!this.state.exercise.validationMethods) {
+      return true;
+    }
+
+    for (const method of this.state.exercise.validationMethods) {
+      if (method(answer)) {
+        continue;
+      } else {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  checkAnswer(answer) {
+    return this.state.exercise.checkMethod(
+      answer,
+      this.state.exercise.answerMath
+    );
   }
 
   beforeNewExercise() {
@@ -110,15 +131,24 @@ class Exercise extends Component {
   submitAnswerHandler(event) {
     event.preventDefault();
 
-    if (!this.validateAnswer()) {
+    if (!this.answerExists()) {
       this.setState({
         message: MESSAGES.invalidAnswer,
       });
-
       return;
     }
 
-    const isCorrect = this.checkAnswer();
+    const answer = this.processAnswer();
+
+    if (!this.validateAnswer(answer)) {
+      this.setState({
+        message: MESSAGES.invalidAnswer,
+      });
+      return;
+    }
+
+    const isCorrect = this.checkAnswer(answer);
+
     if (isCorrect) {
       const exerciseResults = this.state.exerciseResults;
       exerciseResults[this.state.counter] = 'success';

@@ -6,6 +6,7 @@ import { randomIntBetween } from '../../utility/random';
 
 import { wrapNegative } from '../../utility/auxMath';
 
+import { typicalMethods, onlyNumbers } from '../validationMethods';
 import { compareNumbers } from '../checkMethods';
 
 export default function generate2NumsCalc() {
@@ -15,6 +16,7 @@ export default function generate2NumsCalc() {
     questionLatex: null,
     answerMath: null,
     checkMethod: null,
+    validationMethods: null,
   };
 
   const maxInt = 10;
@@ -35,9 +37,9 @@ export default function generate2NumsCalc() {
     exercise.questionMath
   )} $`;
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
-  exercise.checkMethod = compareNumbers;
 
-  // console.log('nerd: ', nerdamer('5/40').toString()); // test
+  exercise.validationMethods = [...typicalMethods, onlyNumbers];
+  exercise.checkMethod = compareNumbers;
 
   return exercise;
 }

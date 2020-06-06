@@ -12,7 +12,8 @@ import {
 
 import { showSign, power } from '../../utility/auxMath';
 
-import { nerd, nerdOneVar, nerdTwoVars } from '../checkMethods';
+import { typicalMethods, upToNTerms, noNumberMult } from '../validationMethods';
+import { nerd } from '../checkMethods';
 
 export default function addMonomials() {
   const exercise = {
@@ -21,6 +22,7 @@ export default function addMonomials() {
     questionLatex: null,
     answerMath: null,
     checkMethod: null,
+    validationMethods: null,
   };
 
   const varNameList = ['x', 'y', 'z', 'b', 'c', 's', 't', 'u', 'v'];
@@ -60,7 +62,6 @@ export default function addMonomials() {
     )} ${varY}${power(powN)} ${varZ}${power(powK)}`;
   }
 
-  exercise.checkMethod = nerd;
   exercise.questionText = 'Κάνε τις πράξεις: ';
   // exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
   //   exercise.questionMath
@@ -68,5 +69,7 @@ export default function addMonomials() {
   exercise.questionLatex = '$ ' + exercise.questionMath + ' $';
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
 
+  exercise.validationMethods = [...typicalMethods, upToNTerms(1), noNumberMult];
+  exercise.checkMethod = nerd;
   return exercise;
 }
