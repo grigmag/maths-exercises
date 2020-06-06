@@ -50,6 +50,7 @@ export function chooseRandomArrayElement(arr) {
 }
 
 export function chooseSomeRandomArrayElements(arr, n) {
+  // TODO: improve this method
   if (n > arr.length) {
     throw new Error('Elements  to pick are larger than array length');
   }
