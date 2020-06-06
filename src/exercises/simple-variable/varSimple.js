@@ -12,20 +12,14 @@ import {
 
 import { showSign } from '../../utility/auxMath';
 
-import { typicalMethods, upToNTerms, noNumberMult } from '../validationMethods';
-import { nerd } from '../checkMethods';
+import { upToNTerms } from '../validationMethods';
 
-export default function varSimple() {
-  const exercise = {
-    questionText: null,
-    questionMath: null,
-    questionLatex: null,
-    answerMath: null,
-    checkMethod: null,
-    validationMethods: null,
-  };
+import { varNameList } from '../auxData';
+import { exBlueprint } from './exBlueprint';
 
-  const varNameList = ['x', 'y', 'z', 'b', 'c', 's', 't', 'u', 'v'];
+export default function generateExercise() {
+  const exercise = { ...exBlueprint };
+
   const maxInt = 10;
 
   const roll = rollD(4);
@@ -40,12 +34,7 @@ export default function varSimple() {
       numB
     )} ${varA} ${showSign(numC)} ${varA}`;
 
-    exercise.validationMethods = [
-      ...typicalMethods,
-      upToNTerms(1),
-      noNumberMult,
-    ];
-    exercise.checkMethod = nerd;
+    exercise.validationMethods = [...exercise.validationMethods, upToNTerms(1)];
   } else if (roll === 2) {
     // a x + b x + c y + d y
     const [numA, numB, numC, numD] = randomNonZeroIntBetween(
@@ -60,12 +49,7 @@ export default function varSimple() {
       varOrder[1]
     } ${showSign(numC)} ${varOrder[2]} ${showSign(numD)} ${varOrder[3]}`;
 
-    exercise.validationMethods = [
-      ...typicalMethods,
-      upToNTerms(2),
-      noNumberMult,
-    ];
-    exercise.checkMethod = nerd;
+    exercise.validationMethods = [...exercise.validationMethods, upToNTerms(2)];
   } else if (roll === 3) {
     // (ax + b) +- (cx + d)
     const [numA, numB, numC, numD] = randomNonZeroIntBetween(
@@ -81,12 +65,7 @@ export default function varSimple() {
       numB
     )}) ${sign} (${numC} ${varA} ${showSign(numD)})`;
 
-    exercise.validationMethods = [
-      ...typicalMethods,
-      upToNTerms(2),
-      noNumberMult,
-    ];
-    exercise.checkMethod = nerd;
+    exercise.validationMethods = [...exercise.validationMethods, upToNTerms(2)];
   } else if (roll === 4) {
     // a (bx + c)
     const [numA, numB, numC] = randomNonZeroIntBetween(-maxInt, maxInt, 3);
@@ -94,15 +73,9 @@ export default function varSimple() {
 
     exercise.questionMath = `${numA} (${numB} ${varA} ${showSign(numC)})`;
 
-    exercise.validationMethods = [
-      ...typicalMethods,
-      upToNTerms(2),
-      noNumberMult,
-    ];
-    exercise.checkMethod = nerd;
+    exercise.validationMethods = [...exercise.validationMethods, upToNTerms(2)];
   }
 
-  exercise.questionText = 'Κάνε τις πράξεις: ';
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;

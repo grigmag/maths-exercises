@@ -1,7 +1,7 @@
 const exerciseList = [
   {
     name: 'Calculation with two numbers',
-    filename: '1-2NumsCalc',
+    filename: '2NumsCalc',
   },
 ];
 

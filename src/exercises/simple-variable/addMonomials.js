@@ -12,20 +12,14 @@ import {
 
 import { showSign, power } from '../../utility/auxMath';
 
-import { typicalMethods, upToNTerms, noNumberMult } from '../validationMethods';
-import { nerd } from '../checkMethods';
+import { upToNTerms } from '../validationMethods';
 
-export default function addMonomials() {
-  const exercise = {
-    questionText: null,
-    questionMath: null,
-    questionLatex: null,
-    answerMath: null,
-    checkMethod: null,
-    validationMethods: null,
-  };
+import { varNameList } from '../auxData';
+import { exBlueprint } from './exBlueprint';
 
-  const varNameList = ['x', 'y', 'z', 'b', 'c', 's', 't', 'u', 'v'];
+export default function generateExercise() {
+  const exercise = { ...exBlueprint };
+
   const maxInt = 10;
   const maxPower = 5;
 
@@ -62,14 +56,12 @@ export default function addMonomials() {
     )} ${varY}${power(powN)} ${varZ}${power(powK)}`;
   }
 
-  exercise.questionText = 'Κάνε τις πράξεις: ';
   // exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
   //   exercise.questionMath
   // )} $`;
   exercise.questionLatex = '$ ' + exercise.questionMath + ' $';
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
 
-  exercise.validationMethods = [...typicalMethods, upToNTerms(1), noNumberMult];
-  exercise.checkMethod = nerd;
+  exercise.validationMethods = [...exercise.validationMethods, upToNTerms(1)];
   return exercise;
 }

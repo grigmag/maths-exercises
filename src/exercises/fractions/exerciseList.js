@@ -1,19 +1,19 @@
 const exerciseList = [
   {
     name: 'Simplify Fractions',
-    filename: '2-SimplifyFraction',
+    filename: 'SimplifyFractions',
   },
   {
     name: 'Add and Subtract Fractions',
-    filename: '3-AddSubFractions',
+    filename: 'AddSubFractions',
   },
   {
     name: 'Multiply Fractions',
-    filename: '4-MultiplyFractions',
+    filename: 'MultiplyFractions',
   },
   {
     name: 'Divide Fractions',
-    filename: '5-DivideFractions',
+    filename: 'DivideFractions',
   },
 ];
 

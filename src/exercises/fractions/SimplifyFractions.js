@@ -3,21 +3,13 @@ import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
 import { randomIntBetween } from '../../utility/random';
-
 import { wrapNegative } from '../../utility/auxMath';
 
-import { typicalMethods, onlyNumbers } from '../validationMethods';
-import { compareNumbers } from '../checkMethods';
+import { exBlueprint } from './exBlueprint';
 
-export default function generate2NumsCalc() {
-  const exercise = {
-    questionText: null,
-    questionMath: null,
-    questionLatex: null,
-    answerMath: null,
-    checkMethod: null,
-    validationMethods: null,
-  };
+export default function generateExercise() {
+  const exercise = { ...exBlueprint };
+  exercise.questionText = 'Απλοποίησε το κλάσμα:';
 
   const maxInt = 10;
   const maxMult = 5;
@@ -32,14 +24,10 @@ export default function generate2NumsCalc() {
 
   exercise.questionMath = `${wrapNegative(numA)} / ${wrapNegative(numB)}`;
 
-  exercise.questionText = 'Απλοποίησε το κλάσμα:';
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
-
-  exercise.validationMethods = [...typicalMethods, onlyNumbers];
-  exercise.checkMethod = compareNumbers;
 
   return exercise;
 }

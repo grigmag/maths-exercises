@@ -3,21 +3,12 @@ import 'nerdamer/Algebra';
 import 'nerdamer/Solve';
 
 import { randomIntBetween, coinFlip } from '../../utility/random';
-
 import { wrapNegative } from '../../utility/auxMath';
 
-import { typicalMethods, onlyNumbers } from '../validationMethods';
-import { compareNumbers } from '../checkMethods';
+import { exBlueprint } from './exBlueprint';
 
-export default function generate2NumsCalc() {
-  const exercise = {
-    questionText: null,
-    questionMath: null,
-    questionLatex: null,
-    answerMath: null,
-    checkMethod: null,
-    validationMethods: null,
-  };
+export default function generateExercise() {
+  const exercise = { ...exBlueprint };
 
   const maxInt = 7;
 
@@ -35,14 +26,11 @@ export default function generate2NumsCalc() {
     coinFlip() ? '+' : '-'
   } ${wrapNegative(numC)} / ${wrapNegative(numD)}`;
 
-  exercise.questionText = 'Κάνε τις πράξεις και απλοποίησε:';
   exercise.questionLatex = String.raw`$ ${nerdamer.convertToLaTeX(
     exercise.questionMath
   )} $`;
-  exercise.validationMethods = [...typicalMethods, onlyNumbers];
 
   exercise.answerMath = nerdamer(exercise.questionMath).toString();
-  exercise.checkMethod = compareNumbers;
 
   return exercise;
 }
