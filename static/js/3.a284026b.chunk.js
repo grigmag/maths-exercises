@@ -1,2 +1,0 @@
-(this.webpackJsonp1=this.webpackJsonp1||[]).push([[3],{25:function(i,e,a){"use strict";a.r(e);var n=[{name:"Variables and numbers",filename:"varSimple"},{name:"Distributive property",filename:"distrProp"},{name:"Add monomials",filename:"addMonomials"},{name:"Multiply monomials",filename:"multiplyMonomials"},{name:"Divide monomials",filename:"divideMonomials"}];n.forEach((function(i,e){i.key=e})),e.default=n}}]);
-//# sourceMappingURL=3.a284026b.chunk.js.map

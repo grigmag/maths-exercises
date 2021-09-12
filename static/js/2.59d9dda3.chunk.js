@@ -1,0 +1,2 @@
+(this.webpackJsonp1=this.webpackJsonp1||[]).push([[2],{23:function(a,n,t){"use strict";t.r(n);var e=[{name:"Calculation with two numbers",filename:"2NumsCalc"}];e.forEach((function(a,n){a.key=n})),n.default=e}}]);
+//# sourceMappingURL=2.59d9dda3.chunk.js.map
