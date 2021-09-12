@@ -16,7 +16,7 @@ import { compareNumbers } from '../checkMethods';
 
 export default function generateExercise() {
   const exercise = {
-    questionText: 'Υπολόγισε:',
+    questionText: 'Calculate:',
     questionMath: null,
     questionLatex: null,
     answerMath: null,

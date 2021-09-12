@@ -2,7 +2,7 @@ import { typicalMethods, noNumberMult } from '../validationMethods';
 import { nerd } from '../checkMethods';
 
 export const exBlueprint = {
-  questionText: 'Κάνε τις πράξεις:',
+  questionText: 'Calculate:',
   questionMath: null,
   questionLatex: null,
   answerMath: null,

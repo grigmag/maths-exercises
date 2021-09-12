@@ -9,7 +9,7 @@ import { exBlueprint } from './exBlueprint';
 
 export default function generateExercise() {
   const exercise = { ...exBlueprint };
-  exercise.questionText = 'Απλοποίησε το κλάσμα:';
+  exercise.questionText = 'Simplify the fraction:';
 
   const maxInt = 10;
   const maxMult = 5;

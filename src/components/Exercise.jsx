@@ -209,13 +209,12 @@ class Exercise extends Component {
             </h2>
             <div className="divider red accent-3"></div>
             <div className="container exercise-container">
-              <h5 className="grey-text text-lighten-4 noto-serif-text">
+              <h5 className="grey-text text-lighten-4">
                 {this.state.exercise.questionText}
               </h5>
               <div className="alien-green-text exercise-math">
                 <Latex displayMode={true}>
-                  {this.state.exercise.questionLatex ||
-                    String.raw`$\int_0^\infty x^2 dx$`}
+                  {this.state.exercise.questionLatex}
                 </Latex>
               </div>
               <form className="" onSubmit={this.submitAnswerHandler.bind(this)}>
