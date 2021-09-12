@@ -4,6 +4,10 @@ const exerciseList = [
     filename: 'varSimple',
   },
   {
+    name: 'Distributive property',
+    filename: 'distrProp',
+  },
+  {
     name: 'Add monomials',
     filename: 'addMonomials',
   },

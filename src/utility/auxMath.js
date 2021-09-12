@@ -18,3 +18,13 @@ export function power(num) {
   // Currently unsuitable for printing the latex of negative powers
   return num === 1 ? '' : `^${num}`;
 }
+
+export function ignoreOne(num) {
+  if (num === 1) {
+    return '';
+  } else if (num === -1) {
+    return '-';
+  } else {
+    return num;
+  }
+}
